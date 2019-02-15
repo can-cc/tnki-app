@@ -1,6 +1,33 @@
 
+
+.placeholder {
+    height: 20px;
+}
+
 .login-logo {
-  width: 120px;
+  width: 100px;
   display: block;
   margin: 0 auto;
+}
+
+ion-item {
+ --padding-start: 0px;
+}
+
+.login-headline {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+ion-button {
+    margin: 0;
+}
+
+.login-button {
+    margin-top: 20px;
+    span {
+      width: 100%;
+    }
 }
