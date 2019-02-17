@@ -8,9 +8,7 @@ import { HttpClient } from 'selenium-webdriver/http';
 export class AuthService {
   public isLogin: Subject<void> = new Subject();
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  public login() {
-    
-  }
+  public login() {}
 }

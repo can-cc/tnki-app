@@ -10,7 +10,7 @@ describe('Tab1Page', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [Tab1Page],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

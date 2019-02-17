@@ -15,12 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes)],
   declarations: [LoginPage]
 })
 export class LoginPageModule {}
