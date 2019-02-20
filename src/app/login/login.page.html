@@ -5,18 +5,30 @@
 
   <div class="login-headline">Login in Tnki</div>
 
-  <ion-item>
-    <ion-label position="floating">Username</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+  <form [formGroup]="form" (submit)="handleClick()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input
+        type="email"
+        inputmode="email"
+        pattern="email"
+        formControlName="email"
+      ></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
 
-  <ion-button class="login-button" expand="full" color="primary">
-    <span>Login</span>
-    <ion-icon slot="end" name="arrow-forward"></ion-icon>
-  </ion-button>
+    <ion-button
+      type="submit"
+      class="login-button"
+      expand="full"
+      color="primary"
+    >
+      <span>Login</span>
+      <ion-icon slot="end" name="arrow-forward"></ion-icon>
+    </ion-button>
+  </form>
 </ion-content>
