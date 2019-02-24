@@ -5,7 +5,7 @@
 
   <div class="login-headline">Login in Tnki</div>
 
-  <form [formGroup]="form" (submit)="handleClick()">
+  <form [formGroup]="form" (submit)="handleClick($event)">
     <ion-item>
       <ion-label position="floating">Email</ion-label>
       <ion-input
@@ -18,7 +18,7 @@
 
     <ion-item>
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
 
     <ion-button

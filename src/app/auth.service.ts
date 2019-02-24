@@ -20,6 +20,7 @@ export class AuthService {
           observe: 'body'
         }
       )
+      .pipe()
       .subscribe((response: any) => {
         console.log(response);
         // setJwt(response.headers.jwt);
