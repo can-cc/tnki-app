@@ -21,12 +21,9 @@ export class LoginPage implements OnInit {
 
   handleClick(event: Event): void {
     event.preventDefault();
-    console.log('--->');
     if (this.form.invalid) {
       return;
     }
-    console.log(this.form.value);
-    console.log(this.form.controls.email.value, this.form.controls.password.value);
     this.authService.login(this.form.controls.email.value, this.form.controls.password.value);
   }
 }
