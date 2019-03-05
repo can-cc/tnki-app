@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Subject, Observable } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { tap } from 'rxjs/operators';
+import { StorageService } from './storage.service';
+import { BootstrapOptions } from '@angular/core/src/application_ref';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  public isLogin: Subject<void> = new Subject();
+  public isLogin$: Subject<boolean> = new Subject();
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private storageService: StorageService) { }
 
-  public login(email: string, password: string) {
-    this.httpClient
+  public login(email: string, password: string): Observable<HttpResponse<{}>> {
+    return this.httpClient
       .post(
         `${environment.apiEndPoinit}/signin`,
         { email, password },
@@ -20,12 +23,13 @@ export class AuthService {
           observe: 'body'
         }
       )
-      .pipe()
-      .subscribe((response: any) => {
-        console.log(response);
-        // setJwt(response.headers.jwt);
-        //   setUserId(response.headers['user-id']);
-        //   Message.success('Sign in sccuess');
-      });
+      .pipe(
+        tap((response: HttpResponse<{}>) => {
+          this.storageService.set('jwt', response.headers.get('jwt'));
+          this.storageService.set('userId', response.headers.get('user-id'));
+
+          this.isLogin$.next(true);
+        })
+      );
   }
 }
