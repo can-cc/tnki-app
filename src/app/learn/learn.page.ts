@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../storage.service';
+import { LearnService } from './learn.service';
 
 @Component({
   selector: 'app-learn',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./learn.page.scss']
 })
 export class LearnPage implements OnInit {
-  constructor() {}
+  constructor(private learnService: LearnService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // const userId = this.storageService.get('userId');
+    // this.learnService
+    this.learnService.getTodayLearnCards().subscribe(resp => {
+      console.log(resp);
+    });
+  }
 }

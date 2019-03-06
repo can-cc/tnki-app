@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { LearnPage } from './learn.page';
+import { LearnCardComponent } from './learn-card/learn-card.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes)],
-  declarations: [LearnPage]
+  declarations: [LearnPage, LearnCardComponent]
 })
 export class LearnPageModule {}
