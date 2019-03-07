@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'learn', loadChildren: './learn/learn.module#LearnPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]

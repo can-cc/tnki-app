@@ -1,7 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>learn</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>review card</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding> </ion-content>
+<ion-content padding>
+
+  <app-learn-process></app-learn-process>
+
+  <app-learn-card 
+    *ngIf="learnCards && learnCards[learningIndex]" 
+    [learnCard]="learnCards[learningIndex]">
+  </app-learn-card>
+
+</ion-content>

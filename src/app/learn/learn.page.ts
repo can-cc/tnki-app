@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../storage.service';
 import { LearnService } from './learn.service';
+import { LearnCard } from '../type/card';
 
 @Component({
   selector: 'app-learn',
@@ -8,13 +9,15 @@ import { LearnService } from './learn.service';
   styleUrls: ['./learn.page.scss']
 })
 export class LearnPage implements OnInit {
+  learnCards: LearnCard[];
+  learningIndex: number;
+
   constructor(private learnService: LearnService) {}
 
   ngOnInit() {
-    // const userId = this.storageService.get('userId');
-    // this.learnService
-    this.learnService.getTodayLearnCards().subscribe(resp => {
-      console.log(resp);
+    this.learnService.getTodayLearnCards().subscribe((learnCards: LearnCard[]) => {
+      this.learnCards = learnCards;
+      this.learningIndex = 0;
     });
   }
 }

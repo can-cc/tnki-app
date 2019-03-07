@@ -12,4 +12,8 @@ export class LearnService {
     const userId: string = this.storageService.get('userId');
     return this.httpClient.get(`/api/cards/user/${userId}/learn/today`);
   }
+
+  public markLearnCardRemeberLevel(level: number) {
+
+  }
 }

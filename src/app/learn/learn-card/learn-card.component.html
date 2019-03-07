@@ -1,3 +1,10 @@
-<p>
-  learn-card works!
-</p>
+<div>
+  
+  <div>{{learnCard.frontText}}</div>
+
+  <ion-button color="light" expand="block" (click)="markRemeberLevel('EASY')">Easy</ion-button>
+  <ion-button color="light" expand="block" (click)="markRemeberLevel('REMEBER')">Remeber</ion-button>
+  <ion-button color="light" expand="block" (click)="markRemeberLevel('FORGOT')">Forgot</ion-button>
+
+  <ion-button color="light" expand="block">Next</ion-button>
+</div>

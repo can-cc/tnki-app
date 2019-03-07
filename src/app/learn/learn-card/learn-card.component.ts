@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { LearnCard } from '../../type/card';
+
+const RemeberLevelMap = {
+  EASY: 0,
+  REMEBER: 1,
+  FORGOT: 2
+};
 
 @Component({
   selector: 'app-learn-card',
@@ -6,10 +13,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./learn-card.component.scss']
 })
 export class LearnCardComponent implements OnInit {
+  @Input() learnCard: LearnCard;
+  @Output() remeber: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  public markRemeberLevel(level: 'EASY' | 'REMEBER' | 'FORGOT'): void {
+    this.remeber.emit(RemeberLevelMap[level]);
   }
 
 }
