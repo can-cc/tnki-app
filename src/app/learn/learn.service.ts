@@ -13,7 +13,9 @@ export class LearnService {
     return this.httpClient.get(`/api/cards/user/${userId}/learn/today`);
   }
 
-  public markLearnCardRemeberLevel(level: number) {
-
+  public markLearnCardRemeberLevel(cardId: string, memoryLevel: number) {
+    return this.httpClient.post(`/api/card/learn/${cardId}/memory`, {
+      memoryLevel
+    });
   }
 }

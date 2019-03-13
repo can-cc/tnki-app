@@ -20,4 +20,8 @@ export class LearnPage implements OnInit {
       this.learningIndex = 0;
     });
   }
+
+  public onCardRemeber({level, cardId}): void {
+    this.learnService.markLearnCardRemeberLevel(cardId, level);
+  }
 }

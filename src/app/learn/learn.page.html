@@ -13,7 +13,8 @@
 
   <app-learn-card 
     *ngIf="learnCards && learnCards[learningIndex]" 
-    [learnCard]="learnCards[learningIndex]">
-  </app-learn-card>
+    [learnCard]="learnCards[learningIndex]"
+    (remeber)="onCardRemeber()"
+  ></app-learn-card>
 
 </ion-content>
