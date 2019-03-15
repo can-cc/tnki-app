@@ -7,7 +7,10 @@ const routes: Routes = [
   { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
   { path: 'learn', loadChildren: './learn/learn.module#LearnPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
-  { path: 'learn-complete', loadChildren: './learn-complete/learn-complete.module#LearnCompletePageModule' }
+  {
+    path: 'learn-complete',
+    loadChildren: './learn-complete/learn-complete.module#LearnCompletePageModule'
+  }
 ];
 
 @NgModule({

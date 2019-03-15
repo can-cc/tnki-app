@@ -4,6 +4,7 @@ import { LearnService } from './learn.service';
 import { LearnCard } from '../type/card';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { FeedbackService } from '../../feedback.service';
 
 @Component({
   selector: 'app-learn',
@@ -14,7 +15,11 @@ export class LearnPage implements OnInit {
   learnCards: LearnCard[];
   learningIndex: number;
 
-  constructor(private learnService: LearnService, private router: Router, private toastController: ToastController) {}
+  constructor(
+    private learnService: LearnService,
+    private router: Router,
+    private feedbackService: FeedbackService
+  ) {}
 
   ngOnInit() {
     this.learnService.getTodayLearnCards().subscribe((learnCards: LearnCard[]) => {
@@ -23,19 +28,17 @@ export class LearnPage implements OnInit {
     });
   }
 
-  public onCardRemeber({level, cardId}): void {
-    this.learnService.markLearnCardRemeberLevel(cardId, level).subscribe(() => {
-      this.learnNextCard();
-    }, async () => {
-      const toast = await this.toastController.create({
-        message: 'Unknow error',
-        duration: 3000,
-        showCloseButton: false,
-        position: 'top',
-        color: 'danger'
-      });
-      toast.present();
-    });
+  public onCardRemeber({ level, cardId }): void {
+    this.learnService.markLearnCardRemeberLevel(cardId, level).subscribe(
+      () => {},
+      async () => {
+        this.feedbackService.showErrorMessage();
+      }
+    );
+  }
+
+  public onNextCard(): void {
+    this.learnNextCard();
   }
 
   learnNextCard() {

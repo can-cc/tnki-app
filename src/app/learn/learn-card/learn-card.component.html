@@ -1,15 +1,16 @@
 <div>
   
-  <div>{{learnCard.frontText}}</div>
+  <div>{{card.frontText}}</div>
+  <div>{{card.backText}}</div>
 
-  <div>
+  <div *ngIf="!markRemeber">
     <ion-button color="light" expand="block" (click)="markRemeberLevel('EASY')">Easy</ion-button>
     <ion-button color="light" expand="block" (click)="markRemeberLevel('REMEBER')">Remeber</ion-button>
     <ion-button color="light" expand="block" (click)="markRemeberLevel('FORGOT')">Forgot</ion-button>  
   </div>
   
-  <div>
-    <ion-button color="light" expand="block">Next</ion-button>
+  <div *ngIf="markRemeber">
+    <ion-button color="light" expand="block" (click)="next.emit()">Next</ion-button>
   </div>
   
 </div>

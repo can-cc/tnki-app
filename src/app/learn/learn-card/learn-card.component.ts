@@ -13,8 +13,15 @@ const RemeberLevelMap = {
   styleUrls: ['./learn-card.component.scss']
 })
 export class LearnCardComponent implements OnInit {
+  private card: LearnCard;
+
   @Input()
-  learnCard: LearnCard;
+  set learnCard(card: LearnCard) {
+    if (this.card !== card) {
+      this.card = card;
+      this.markRemeber = false;
+    }
+  }
 
   @Output()
   remeber: EventEmitter<{ cardId: number; level: number }> = new EventEmitter<{
@@ -22,18 +29,19 @@ export class LearnCardComponent implements OnInit {
     level: number;
   }>();
 
-  markRemeber: boolean;
+  @Output()
+  next: EventEmitter<void> = new EventEmitter();
+
+  markRemeber = false;
 
   constructor() {}
 
   ngOnInit() {}
 
-  
-
   public markRemeberLevel(level: 'EASY' | 'REMEBER' | 'FORGOT'): void {
-    
+    this.markRemeber = true;
     this.remeber.emit({
-      cardId: this.learnCard.id,
+      cardId: this.card.id,
       level: RemeberLevelMap[level]
     });
   }
