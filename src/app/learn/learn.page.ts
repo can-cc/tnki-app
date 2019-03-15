@@ -25,6 +25,10 @@ export class LearnPage implements OnInit {
     this.learnService.getTodayLearnCards().subscribe((learnCards: LearnCard[]) => {
       this.learnCards = learnCards;
       this.learningIndex = 0;
+
+      if (!this.learnCards.length) {
+        this.router.navigate(['/learn-complete']);
+      }
     });
   }
 

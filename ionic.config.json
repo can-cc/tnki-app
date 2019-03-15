@@ -1,6 +1,9 @@
 {
   "name": "tnki-app",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular",
   "id": "e311c5ed"
 }

@@ -13,7 +13,7 @@ const RemeberLevelMap = {
   styleUrls: ['./learn-card.component.scss']
 })
 export class LearnCardComponent implements OnInit {
-  private card: LearnCard;
+  card: LearnCard;
 
   @Input()
   set learnCard(card: LearnCard) {
