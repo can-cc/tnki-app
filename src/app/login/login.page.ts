@@ -3,6 +3,7 @@ import { Form, FormGroup, FormControl, FormBuilder, Validators } from '@angular/
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { FeedbackService } from 'src/feedback.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
+    private feedbackService: FeedbackService,
     public toastController: ToastController
   ) {
     this.form = fb.group({
@@ -38,14 +40,11 @@ export class LoginPage implements OnInit {
           this.router.navigate([''], { replaceUrl: true });
         },
         async error => {
-          const toast = await this.toastController.create({
-            message: 'Email or password wrong',
-            duration: 3000,
-            showCloseButton: false,
-            position: 'top',
-            color: 'danger'
-          });
-          toast.present();
+          if (error.status === 401) {
+            this.feedbackService.showErrorMessage('Email or password wrong');
+          } else {
+            this.feedbackService.showErrorMessage();
+          }
         }
       );
   }

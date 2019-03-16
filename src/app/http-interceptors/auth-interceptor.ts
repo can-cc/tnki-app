@@ -9,9 +9,10 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private storageService: StorageService) {}
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const newReq = req.clone({
-      headers: req.headers.set('jwt', this.storageService.get('jwt'))
-    });
+    const jwt: string = this.storageService.get('jwt');
+    const newReq = jwt ?  req.clone({
+      headers: req.headers.set('jwt', jwt)
+    }) : req.clone();
     return next.handle(newReq);
   }
 }
