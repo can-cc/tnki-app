@@ -25,4 +25,8 @@ export class AuthService {
         })
       );
   }
+
+  public initAuth(): void 
+
+  }
 }
