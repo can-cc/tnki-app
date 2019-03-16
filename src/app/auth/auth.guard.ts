@@ -18,11 +18,9 @@ export class AuthGuard implements CanActivate {
   }
 
   private checkLogin(): Observable<boolean> {
-    console.log('checkloging');
     return this.authSevice.isLogin$.pipe(
       take(1),
       tap((isLogin: boolean) => {
-        console.log('isLogin', isLogin);
         if (!isLogin) {
           this.router.navigate(['/login']);
         }
