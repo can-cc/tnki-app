@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'learn-complete',
     loadChildren: './learn-complete/learn-complete.module#LearnCompletePageModule'
-  }
+  },
+  { path: 'create', loadChildren: './create/create.module#CreatePageModule' }
 ];
 
 @NgModule({
