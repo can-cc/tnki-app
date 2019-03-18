@@ -1,7 +1,10 @@
 <div>
   
   <div>{{card.frontText}}</div>
-  <div>{{card.backText}}</div>
+
+  <div class="divider"></div>
+  
+  <div *ngIf="markRemeber">{{card.backText}}</div>
 
   <div *ngIf="!markRemeber">
     <ion-button color="light" expand="block" (click)="markRemeberLevel('EASY')">Easy</ion-button>
