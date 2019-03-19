@@ -1,11 +1,15 @@
-<div>
-  
+<div class="content-wrapper">
   <div>{{card.frontText}}</div>
 
-  <div class="divider"></div>
+  <div *ngIf="markRemeber">
+    <div class="divider"></div>
   
-  <div *ngIf="markRemeber">{{card.backText}}</div>
+    <div >{{card.backText}}</div>
+  </div>
+</div>
 
+
+<div class="button-wrapper">
   <div *ngIf="!markRemeber">
     <ion-button color="light" expand="block" (click)="markRemeberLevel('EASY')">Easy</ion-button>
     <ion-button color="light" expand="block" (click)="markRemeberLevel('REMEBER')">Remeber</ion-button>
@@ -15,5 +19,4 @@
   <div *ngIf="markRemeber">
     <ion-button color="light" expand="block" (click)="next.emit()">Next</ion-button>
   </div>
-  
 </div>
