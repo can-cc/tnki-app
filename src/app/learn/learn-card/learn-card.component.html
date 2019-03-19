@@ -1,22 +1,23 @@
 <div class="content-wrapper">
-  <div>{{card.frontText}}</div>
+
+  <div class="front-text">{{card.frontText}}</div>
 
   <div *ngIf="markRemeber">
     <div class="divider"></div>
   
-    <div >{{card.backText}}</div>
+    <div class="back-text">{{card.backText}}</div>
   </div>
 </div>
 
 
 <div class="button-wrapper">
   <div *ngIf="!markRemeber">
-    <ion-button color="light" expand="block" (click)="markRemeberLevel('EASY')">Easy</ion-button>
-    <ion-button color="light" expand="block" (click)="markRemeberLevel('REMEBER')">Remeber</ion-button>
-    <ion-button color="light" expand="block" (click)="markRemeberLevel('FORGOT')">Forgot</ion-button>  
+    <ion-button color="success" expand="block" (click)="markRemeberLevel('EASY')">Easy</ion-button>
+    <ion-button color="warning" expand="block" (click)="markRemeberLevel('REMEBER')">Remeber</ion-button>
+    <ion-button color="danger" expand="block" (click)="markRemeberLevel('FORGOT')">Forgot</ion-button>  
   </div>
   
-  <div *ngIf="markRemeber">
-    <ion-button color="light" expand="block" (click)="next.emit()">Next</ion-button>
+  <div *ngIf="markRemeber" class="next-button-wrapper">
+    <ion-button color="primary" expand="block" (click)="next.emit()">Next</ion-button>
   </div>
 </div>

@@ -6,17 +6,40 @@
   height: 100%;
 }
 
+.front-text {
+  background-color: #2cadf9;
+  color: white;
+  padding: 3px 8px 4px;
+  border-radius: 3px;
+}
+
+.back-text {
+  color: white;
+  background-color: #47b784;
+  padding: 3px 8px 4px;
+  border-radius: 3px;
+}
+
 .divider {
   height: 1px;
   width: 100%;
-  background-color: #999;
+  background-color: #eee;
+  margin: 10px auto;
 }
 
 .content-wrapper {
+  position: relative;
   width: 100%;
   height: calc(100% - 125px);
 }
 
 .button-wrapper {
   height: 125px;
+}
+
+.next-button-wrapper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }

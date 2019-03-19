@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "http://tnki.chenfangwei.xyz/",
+        "target": "http://localhost:3500/",
         "changeOrigin": true,
         "secure": false,
         "logLevel": "debug"
