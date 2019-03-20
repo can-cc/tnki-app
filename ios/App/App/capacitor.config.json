@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "tnki-app",
+  "appId": "com.fwchen.tnki",
+  "appName": "Tnki",
   "bundledWebRuntime": false,
   "webDir": "www"
 }
