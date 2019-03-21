@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiEndPoinit: 'https://tnki.chenfangwei.xyz'
+  apiEndPoinit: 'http://tnki.chenfangwei.xyz'
 };
