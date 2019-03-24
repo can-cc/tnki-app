@@ -4,6 +4,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { tap } from 'rxjs/operators';
 import { StorageService } from './storage.service';
+import { API_ENDPOINT } from '../constant/api';
 
 const JWT_STORAGE_KEY = 'jwt';
 
@@ -17,7 +18,7 @@ export class AuthService {
 
   public login(email: string, password: string): Observable<HttpResponse<{}>> {
     return this.httpClient
-      .post(`${environment.apiEndPoinit}/signin`, { email, password }, { observe: 'response' })
+      .post(`${API_ENDPOINT}/signin`, { email, password }, { observe: 'response' })
       .pipe(
         tap((response: HttpResponse<{}>) => {
           this.storageService.set(JWT_STORAGE_KEY, response.headers.get('jwt'));
