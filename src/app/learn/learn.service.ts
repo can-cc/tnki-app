@@ -10,11 +10,11 @@ export class LearnService {
 
   public getTodayLearnCards() {
     const userId: string = this.storageService.get('userId');
-    return this.httpClient.get(`/api/cards/user/${userId}/learn/today`);
+    return this.httpClient.get(`/cards/user/${userId}/learn/today`);
   }
 
   public markLearnCardRemeberLevel(cardId: string, memoryLevel: number) {
-    return this.httpClient.post(`/api/card/learn/${cardId}/memory`, {
+    return this.httpClient.post(`/card/learn/${cardId}/memory`, {
       memoryLevel
     });
   }
