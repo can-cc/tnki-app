@@ -33,4 +33,9 @@ export class AuthService {
     const jwt: string = this.storageService.get(JWT_STORAGE_KEY);
     this.isLogin$.next(!!jwt);
   }
+
+  public logout(): void {
+    this.isLogin$.next(false);
+    window.localStorage.clear();
+  }
 }
